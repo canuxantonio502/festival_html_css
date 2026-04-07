@@ -1,0 +1,108 @@
+:root {
+    --color-principal: #1e1e2f;
+    --color-secundario: rgb(255, 87, 51);
+    --color-texto: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("assets/festival.webp");
+    background-attachment: fixed;
+    color: var(--color-texto);
+}
+
+#inicio, #artistas, #programacion, #precios, #registro, #video, #ubicacion, #contacto {
+    text-align: center;
+    padding: 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+}
+
+nav ul li a:hover {
+    color: var(--color-secundario);
+}
+
+h2::before {
+    align-items: center;
+    content: "🎵"
+}
+
+section > h2 {
+    margin-top: 20px;
+}
+
+table {
+    border: 1px solid white;
+    width: 80%;
+    margin: 20px auto;
+}
+
+th, td {
+    border: 1px solid white;
+    padding: 10px;
+    text-align: center;
+}
+
+ul {
+    text-align: center;
+    list-style-position: inside;
+    list-style-type: square;
+    padding: o;
+}
+
+ol {
+    text-align: center;
+    list-style-position: inside;
+    list-style-type: decimal;
+    padding: o;
+}
+
+form {
+    margin: 20px;
+}
+
+input, select, textarea {
+    display: block;
+    margin: 10px auto;
+    padding: 5px;
+    width: 80%;
+}
+
+button {
+    background-color: var(--color-secundario);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+}
+
+h2 {
+    text-align: center;
+}
+
+form {
+    text-align: center;
+    width: 300px;
+    margin: 0 auto;
+}
+
+p {
+    text-align: center;
+}
