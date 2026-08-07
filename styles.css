@@ -1,108 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap');
+
 :root {
-    --color-principal: #1e1e2f;
-    --color-secundario: rgb(255, 87, 51);
+    --color-principal: #1a1a2e;
+    --color-secundario: #ff5733; /* rgb(255, 87, 51) */
+    --color-acento: #e94560;
+    --color-tarjeta: rgba(30, 30, 47, 0.85); /* Fondo oscuro semitransparente */
     --color-texto: #ffffff;
+    --fuente-base: 'Poppins', sans-serif;
+    --fuente-titulos: 'Bebas Neue', sans-serif;
 }
 
 * {
     margin: 0;
     padding: 0;
+    box-sizing: border-box; /* Fundamental para evitar desbordes por padding */
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave al hacer clic en los enlaces del menú */
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url("assets/festival.webp");
+    font-family: var(--fuente-base);
+    background-color: var(--color-principal); /* Fallback por si la imagen no carga */
+    background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url("assets/festival.webp");
+    background-size: cover;
+    background-position: center;
     background-attachment: fixed;
     color: var(--color-texto);
+    line-height: 1.6;
 }
 
-#inicio, #artistas, #programacion, #precios, #registro, #video, #ubicacion, #contacto {
-    text-align: center;
-    padding: 20px;
+/* --- NAVEGACIÓN --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: rgba(20, 20, 32, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-nav ul {
+.navbar ul {
     list-style-type: none;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
-nav ul li {
-    display: inline;
-    margin: 10px;
+.navbar a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
 }
 
-nav ul li a:hover {
+.navbar a:hover {
     color: var(--color-secundario);
 }
 
-h2::before {
+/* --- CABECERA --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    content: "🎵"
+    min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+    text-align: center;
+    padding: 0 20px;
 }
 
-section > h2 {
-    margin-top: 20px;
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem); /* Tamaño de fuente adaptable */
+    margin-bottom: 10px;
+    font-family: var(--fuente-titulos);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+}
+
+/* --- CONTENEDOR PRINCIPAL Y TARJETAS --- */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+.card {
+    background: var(--color-tarjeta);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 30px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    animation: fadeIn 0.8s ease-out forwards;
+    opacity: 0;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+    font-family: var(--fuente-titulos);
+    font-weight: 700;
+    color: var(--color-secundario);
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+h2::before {
+    content: "🎵 ";
+}
+
+/* --- TABLAS --- */
+.table-container {
+    overflow-x: auto; /* Permite scroll horizontal en móviles si la tabla es muy ancha */
 }
 
 table {
-    border: 1px solid white;
-    width: 80%;
-    margin: 20px auto;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
 }
 
 th, td {
-    border: 1px solid white;
-    padding: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 12px;
     text-align: center;
 }
 
-ul {
-    text-align: center;
-    list-style-position: inside;
-    list-style-type: square;
-    padding: o;
+th {
+    background-color: rgba(233, 69, 96, 0.15); /* Usando el color de acento */
+    color: var(--color-secundario);
+    font-weight: bold;
 }
 
-ol {
-    text-align: center;
-    list-style-position: inside;
-    list-style-type: decimal;
-    padding: o;
+/* --- LISTAS --- */
+.lista-custom {
+    display: inline-block;
+    text-align: left;
+    margin: 0 auto;
 }
 
+.lista-custom li {
+    margin: 10px 0;
+    font-size: 1.1rem;
+}
+
+/* --- FORMULARIO --- */
 form {
-    margin: 20px;
+    max-width: 450px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: 600;
 }
 
 input, select, textarea {
-    display: block;
-    margin: 10px auto;
-    padding: 5px;
-    width: 80%;
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    background-color: rgba(255, 255, 255, 0.9);
+    font-family: var(--fuente-base);
+    font-size: 1rem;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: 2px solid var(--color-secundario);
+    background-color: #fff;
 }
 
 button {
     background-color: var(--color-secundario);
+    color: #fff;
     border: none;
-    padding: 10px;
+    padding: 15px;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: bold;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
 }
 
 button:hover {
-    background-color: white;
-    color: black;
+    background-color: #e64a2e;
+    transform: translateY(-2px);
 }
 
-h2 {
-    text-align: center;
+/* --- IFRAMES (Video y Mapa Responsivos) --- */
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Ratio 16:9 */
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
-form {
-    text-align: center;
-    width: 300px;
-    margin: 0 auto;
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
-p {
-    text-align: center;
+/* --- ENLACES GENERALES --- */
+.link-secundario {
+    color: var(--color-secundario);
+    text-decoration: none;
+    font-weight: bold;
 }
+
+.link-secundario:hover {
+    text-decoration: underline;
+}
+
+/* --- FOOTER --- */
+.footer {
+    text-align: center;
+    padding: 40px 20px;
+    background-color: rgba(20, 20, 32, 0.9);
+    margin-top: 40px;
+}
+
+.footer .card { margin-bottom: 40px; }

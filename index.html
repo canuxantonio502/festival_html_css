@@ -1,36 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Festival de Música 2026</title>
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-    <header id="inicio">
-        <h1>Festival de Música 2026</h1>
-        <p>El mejor evento musical del año (y de tu vida)</p>
-    </header>
-    <nav>
+    <nav class="navbar">
         <ul>
             <li><a href="#inicio">Inicio</a></li>
             <li><a href="#artistas">Artistas</a></li>
             <li><a href="#programacion">Programación</a></li>
             <li><a href="#precios">Precios</a></li>
-            <li><a href="#registro">Registros</a></li>
             <li><a href="#contacto">Contacto</a></li>
         </ul>
     </nav>
-    <main>
-        <section>
+
+    <header id="inicio" class="hero">
+        <h1>Festival de Música 2026</h1>
+        <p>El mejor evento musical del año (y de tu vida)</p>
+    </header>
+
+    <main class="container">
+        <section class="card">
             <h2>Sobre el festival</h2>
             <article>
                 <p>Este es el evento más esperado del año. El evento que reunirá a tus artistas favoritos. No te lo puedes perder. Este si es legal. No habrán problemas.</p>
             </article>
         </section>
 
-        <section id="artistas">
-            <ul>
+        <section id="artistas" class="card">
+            <h2>Artistas Invitados</h2>
+            <ul class="lista-custom">
                 <li>Marco Antonio Solis</li>
                 <li>Bronco</li>
                 <li>Camilo Sesto</li>
@@ -38,93 +40,109 @@
             </ul>
         </section>
 
-        <section id="programacion">
+        <section id="programacion" class="card">
             <h2>Programación</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Hora</th>
-                        <th>Artista</th>
-                        <th>Escenario</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>5:00 PM</td>
-                        <td>Marco Antonio</td>
-                        <td>Principal</td>
-                    </tr>
-                    <tr>
-                        <td>7:00 PM</td>
-                        <td>Bronco</td>
-                        <td>Regional</td>
-                    </tr>
-                    <tr>
-                        <td>9:00 PM</td>
-                        <td>Ricardo Arjona</td>
-                        <td>Chapin</td>
-                    </tr>
-                    <tr>
-                        <td>10:00 PM</td>
-                        <td>Camilo Sesto</td>
-                        <td>Recuerdos</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Hora</th>
+                            <th>Artista</th>
+                            <th>Escenario</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>5:00 PM</td>
+                            <td>Marco Antonio Solis</td>
+                            <td>Principal</td>
+                        </tr>
+                        <tr>
+                            <td>7:00 PM</td>
+                            <td>Bronco</td>
+                            <td>Regional</td>
+                        </tr>
+                        <tr>
+                            <td>9:00 PM</td>
+                            <td>Ricardo Arjona</td>
+                            <td>Chapín</td>
+                        </tr>
+                        <tr>
+                            <td>10:00 PM</td>
+                            <td>Camilo Sesto</td>
+                            <td>Recuerdos</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </section>
 
-        <section id="precios">
+        <section id="precios" class="card">
             <h2>Precios</h2>
-            <ol>
+            <ol class="lista-custom">
                 <li>Entrada General: Q.100.00</li>
                 <li>VIP: Q.250.00</li>
                 <li>Backstage: Q.500.00</li>
             </ol>
         </section>
 
-        <section id="registro">
+        <section id="registro" class="card">
             <h2>Registro</h2>
             <form>
-                <label>Nombre: </label>
-                <input type="text" required>
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
 
-                <label>Edad: </label>
-                <input type="number" required>
+                <div class="form-group">
+                    <label for="edad">Edad:</label>
+                    <input type="number" id="edad" name="edad" required>
+                </div>
 
-                <label>Fecha de asistencia: </label>
-                <input type="date">
+                <div class="form-group">
+                    <label for="fecha">Fecha de asistencia:</label>
+                    <input type="date" id="fecha" name="fecha">
+                </div>
 
-                <label>Tipo de Entrada: </label>
-                <select>
-                    <option>General</option>
-                    <option>VIP</option>
-                    <option>Backstage</option>
-                </select>
+                <div class="form-group">
+                    <label for="tipoEntrada">Tipo de Entrada:</label>
+                    <select id="tipoEntrada" name="tipoEntrada">
+                        <option value="general">General</option>
+                        <option value="vip">VIP</option>
+                        <option value="backstage">Backstage</option>
+                    </select>
+                </div>
 
-                <label>Comentarios: </label>
-                <textarea></textarea>
+                <div class="form-group">
+                    <label for="comentarios">Comentarios:</label>
+                    <textarea id="comentarios" name="comentarios" rows="4"></textarea>
+                </div>
 
-                <button type="submit">Enviar</button>
+                <button type="submit">Confirmar Asistencia</button>
             </form>
         </section>
-
-        <section id="video">
-            <h2>Vídeo del evento</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/-GUzgShHpGY?si=6JMMuG4-UdkqSCt1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <!--<iframe width="400" height="250" src="https://www.youtube.com/watch?v=-GUzgShHpGY"></iframe>-->
-        </section>
-
-        <section id="ubicacion">
-            <h2>Ubicación</h2>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.8258004847357!2d-90.52632522398017!3d14.608997285878367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3d506898b87%3A0x83c0af9f5a86c02a!2sParque%20de%20la%20Industria!5e0!3m2!1ses!2sgt!4v1775484006936!5m2!1ses!2sgt" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <!--<iframe src="https://www.google.com/maps/place/Parque+de+la+Industria/@14.6089973,-90.5263199,17z/data=!3m1!4b1!4m6!3m5!1s0x8589a3d506898b87:0x83c0af9f5a86c02a!8m2!3d14.6089973!4d-90.5237503!16s%2Fg%2F1v_w2pj6?entry=ttu&g_ep=EgoyMDI2MDQwMS4wIKXMDSoASAFQAw%3D%3D"></iframe>-->
-        </section>
-
-        <section id="contacto">
-            <h2>Contacto</h2>
-            <p>Correo: festivalguate@music.com</p>
-            <a href="https://empiremusicfestival.com/">Más festivales</a>
-        </section>
     </main>
+
+    <footer id="contacto" class="footer container">
+        <section id="video" class="card">
+            <h2>Vídeo del evento</h2>
+            <div class="iframe-container">
+                <iframe src="https://www.youtube.com/embed/-GUzgShHpGY?si=6JMMuG4-UdkqSCt1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen loading="lazy"></iframe>
+            </div>
+        </section>
+
+        <section id="ubicacion" class="card">
+            <h2>Ubicación</h2>
+            <div class="iframe-container">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3860.8258004847357!2d-90.52632522398017!3d14.608997285878367!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8589a3d506898b87%3A0x83c0af9f5a86c02a!2sParque%20de%20la%20Industria!5e0!3m2!1ses!2sgt!4v1775484006936!5m2!1ses!2sgt" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </section>
+
+        <section class="card">
+            <h2>Contacto</h2>
+            <p>Correo: <a href="mailto:festivalguate@music.com" class="link-secundario">festivalguate@music.com</a></p>
+            <p><a href="https://empiremusicfestival.com/" target="_blank" class="link-secundario">Ver más festivales</a></p>
+        </section>
+    </footer>
 </body>
 </html>
